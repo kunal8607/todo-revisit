@@ -1,8 +1,9 @@
-class PagesController < ApplicationController
-	def home
-		# render json: {}
-	end
+# frozen_string_literal: true
 
-	def about
-	end
+class PagesController < ApplicationController
+  def home
+    # render json: {}
+  end
+
+  def about; end
 end

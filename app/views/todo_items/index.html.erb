@@ -1,0 +1,24 @@
+<h2>TO INDEX</h2>
+<table>
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Description</td>
+  </tr>
+  <%@todos.each do |todo| %>
+
+  <tr>
+    <td><%= todo.id %> </td>
+    <td><%= todo.name %> </td>
+    <td><%= todo.desc %> </td>
+  </tr>
+  <% end %>
+</table>
+
+
+
+
+
+
+
+

@@ -9,7 +9,14 @@
   </head>
 
   <body>
-  	<H1>from layout</H1>
+  <ul>
+    <%flash.each do |key,msg| %>
+    <li>
+      <%=msg %>
+    </li>
+    <% end %>
+  </ul>
+
     <%= yield %>
   </body>
 </html>
