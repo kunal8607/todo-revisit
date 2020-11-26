@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TodoItemsController < ApplicationController
+  before_filter :get_todo, only: %i[edit show destroy]
   def new
     @todo = TodoItem.new
   end
@@ -19,7 +20,6 @@ class TodoItemsController < ApplicationController
   end
 
   def show
-    @todo = TodoItem.find(params[:id])
     # render json: @todo
   end
 
@@ -41,9 +41,19 @@ class TodoItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @todo.destroy
+    flash[:notice] = 'Todo deleted successfully'
+    redirect_to todo_items_path
+  end
+
   private
 
   def todo_items_params
     params.require(:todo_item).permit(:name, :desc)
+  end
+
+  def get_todo
+    @todo = TodoItem.find(params[:id])
   end
 end

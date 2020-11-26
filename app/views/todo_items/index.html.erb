@@ -1,16 +1,22 @@
-<h2>TO INDEX</h2>
+<h2>Listing all Todo</h2>
+<p>
+  <%=link_to "Crate a Todo", new_todo_item_path %>
+</p>
 <table>
   <tr>
-    <td>Id</td>
+<!--    <td>Id</td>-->
     <td>Name</td>
     <td>Description</td>
   </tr>
   <%@todos.each do |todo| %>
 
   <tr>
-    <td><%= todo.id %> </td>
+<!--    <td><%#= todo.id %> </td>-->
     <td><%= todo.name %> </td>
     <td><%= todo.desc %> </td>
+    <td><%=link_to "Edit", edit_todo_item_path(todo) %></td>
+    <td><%=link_to "Show", todo_item_path(todo) %></td>
+    <td><%=link_to "Delete", todo_item_path(todo), method: :delete, data:{confirm: 'Are you sure?'} %></td>
   </tr>
   <% end %>
 </table>

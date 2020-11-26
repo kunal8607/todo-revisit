@@ -1,3 +1,5 @@
 <h1>TODO PAGE</h1>
 <p>Name: <%= @todo.name %> </p>
 <p>Description: <%= @todo.desc %> </p>
+
+<%= link_to "Edit", edit_todo_item_path(@todo) %> | <%= link_to "Listings page", todo_items_path %>
